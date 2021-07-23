@@ -78,13 +78,11 @@ VALUES
 ("Sam", "McAdams", "smac@rouxacademy.com", "555-555-5555")
 
 INSERT INTO Reservations 
-    (ReservationID, -- Table does not autoincrement new unique ID
-    CustomerID, 
+    (CustomerID, 
     Date, 
     PartySize)
     VALUES
-    ((SELECT MAX(ReservationID) FROM Reservations) + 1,
-    (SELECT CustomerID FROM Customers WHERE Email="smac@rouxacademy.com"), 
+    ((SELECT CustomerID FROM Customers WHERE Email="smac@rouxacademy.com"), 
     "2020-07-14 18:00", 
     5)
 
